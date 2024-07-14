@@ -23,6 +23,7 @@ def main(data):
 
     try:
         headers = get_headers(data)
+        session.post('https://bot.pocketfi.org/boost/activateDailyBoost', headers=headers)
         response = session.get('https://bot.pocketfi.org/mining/getUserMining', headers=headers)
         if response.status_code == 200:
             json_response = response.json()
